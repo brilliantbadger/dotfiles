@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# if you want this to run in dmenu, add this file location to $PATH
+# for example, you can cop this file to /usr/local/bin
+
+wallpaper=$(ls ~/pictures/wallpapers | dmenu -i -l 10)
+
+[ $wallpaper -z ] || feh --bg-fill /home/samuel/pictures/wallpapers/$wallpaper

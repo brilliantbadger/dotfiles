@@ -1,0 +1,22 @@
+#!/bin/bash
+
+dayanddate () {
+	date +"%A %B %e"
+}
+
+battery () {
+	bash ~/.scripts/statusbarsetup/battery
+}
+
+wifi() {
+	bash ~/.scripts/statusbarsetup/wifi
+}
+
+timedate () {
+	date +"%T"
+}
+
+while true; do
+	xsetroot -name "$(dayanddate)""  "";""$(battery)"" $(wifi)"" |$(timedate)""   "
+	sleep 1s	
+done

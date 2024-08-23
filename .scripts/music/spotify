@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# if you want this to run in dmenu, add this file location to $PATH
+# for example, you can copy this file to /usr/local/bin/
+
+if [ ! $(pgrep "spotifyd") ]; then
+	spotifyd
+fi
+
+st -e spt

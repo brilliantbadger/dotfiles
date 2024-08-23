@@ -1,0 +1,10 @@
+#!/bin/bash
+
+wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+
+rawtext=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+ghost=${rawtext:8:4}
+volnum=$((10#"${ghost//.}"))
+
+dunstify -a "changevolume" -u low -r 9993 -h int:value:"$volnum" -i "volume-$1" "Volume: ${volnum}%" -t 2000

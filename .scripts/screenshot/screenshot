@@ -1,0 +1,3 @@
+#!/bin/sh
+
+scrot '/home/samuel/pictures/screenshots/%Y-%m-%d-%T-screenshot.png'

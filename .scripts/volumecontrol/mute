@@ -1,0 +1,14 @@
+#!/bin/bash
+
+rawtext=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+
+if [ ${rawtext:13:7} = "[MUTED]" ]; then
+	ghost=${rawtext:8:4}
+	volnum=$((10#"${ghost//.}"))
+
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0
+	dunstify -a "changevolume" -u low -r 9993 -h int:value:"$volnum" -i "volume-$1" "Volume: ${volnum}%" -t 2000	
+else
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
+	dunstify -i volume-mute -a "changevolume" -t 2000 -r 9993 -u low "Volume: [MUTED]"
+fi
