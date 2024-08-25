@@ -1,0 +1,27 @@
+# printscreen
+@Print
+    bash ~/.scripts/screenshot/screenshot
+
+# decrease volume [5%]
+@XF86AudioLowerVolume
+    bash .scripts/volumecontrol/down
+
+# increase volume [5%]
+@XF86AudioRaiseVolume
+    bash .scripts/volumecontrol/up
+
+# mute volume
+@XF86AudioMute
+    bash .scripts/volumecontrol/mute
+
+# mute microphone
+@XF86AudioMicMute
+    wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+# make screen brighter [5]
+@XF86MonBrightnessUp
+    brillo -q -A 5
+
+# make screen dimmer [5]
+@XF86MonBrightnessDown
+    brillo -q -U 5
